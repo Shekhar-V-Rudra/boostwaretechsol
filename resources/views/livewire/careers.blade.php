@@ -18,7 +18,7 @@
                     We are looking for an expert in Laravel and Livewire to lead our backend architecture.
                 </p>
                 <div class="mt-6">
-                    <a href="/contact?subject=Job Application - Laravel Developer" class="text-sm font-semibold leading-6 text-blue-400 hover:text-blue-300">Apply <span aria-hidden="true">&rarr;</span></a>
+                    <a href="/contact?subject=Job Application - Laravel Developer" wire:navigate class="text-sm font-semibold leading-6 text-blue-400 hover:text-blue-300">Apply <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                     Create stunning, glassmorphic interfaces and smooth animations using Tailwind and Alpine.js.
                 </p>
                 <div class="mt-6">
-                    <a href="/contact?subject=Job Application - UI/UX Designer" class="text-sm font-semibold leading-6 text-blue-400 hover:text-blue-300">Apply <span aria-hidden="true">&rarr;</span></a>
+                    <a href="/contact?subject=Job Application - UI/UX Designer" wire:navigate class="text-sm font-semibold leading-6 text-blue-400 hover:text-blue-300">Apply <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </div>
         </div>

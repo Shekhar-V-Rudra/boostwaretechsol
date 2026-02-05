@@ -45,6 +45,25 @@
                 <a href="/" wire:navigate class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition">Home</a>
                 <a href="/portfolio" wire:navigate class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition">Portfolio</a>
                 <a href="/services" wire:navigate class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition">Services</a>
+                
+                <!-- Blog Dropdown -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" @click.away="open = false" 
+                        class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition flex items-center gap-1">
+                        Blog
+                        <svg class="w-4 h-4 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div x-show="open" x-transition 
+                        class="absolute top-full left-0 mt-2 w-48 rounded-lg bg-slate-800 border border-white/10 shadow-lg py-2 z-50">
+                        <a href="/blog" wire:navigate 
+                            class="block px-4 py-2 text-sm text-gray-100 hover:bg-white/5 hover:text-blue-400 transition">
+                            All Articles
+                        </a>
+                    </div>
+                </div>
+                
                 <a href="/careers" wire:navigate class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition">Careers</a>
                 <a href="/about" wire:navigate class="text-sm font-semibold leading-6 text-gray-100 hover:text-blue-400 transition">About Us</a>
             </div>
@@ -77,8 +96,9 @@
                             <a href="/" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">Home</a>
                             <a href="/portfolio" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">Portfolio</a>
                             <a href="/services" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">Services</a>
+                            <a href="/blog" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">Blog</a>
                             <a href="/careers" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">Careers</a>
-                             <a href="/about" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">About Us</a>
+                            <a href="/about" wire:navigate class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-white/5">About Us</a>
                         </div>
                         <div class="py-6">
                             <a href="/contact" wire:navigate class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-white/5">Contact Us</a>

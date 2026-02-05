@@ -15,21 +15,38 @@
             @endif
             <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 <div class="sm:col-span-2">
-                    <label for="name" class="block text-sm font-semibold leading-6 text-white">Name</label>
+                    <label for="name" class="block text-sm font-semibold leading-6 text-white">Name *</label>
                     <div class="mt-2.5">
-                        <input type="text" wire:model="name" id="name" class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        <input type="text" wire:model="name" id="name" required class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        @error('name') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-semibold leading-6 text-white">Email *</label>
+                    <div class="mt-2.5">
+                        <input type="email" wire:model="email" id="email" required class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        @error('email') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+                <div>
+                    <label for="phone" class="block text-sm font-semibold leading-6 text-white">Phone</label>
+                    <div class="mt-2.5">
+                        <input type="tel" wire:model="phone" id="phone" class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        @error('phone') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="sm:col-span-2">
-                    <label for="email" class="block text-sm font-semibold leading-6 text-white">Email</label>
+                    <label for="subject" class="block text-sm font-semibold leading-6 text-white">Subject</label>
                     <div class="mt-2.5">
-                        <input type="email" wire:model="email" id="email" class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        <input type="text" wire:model="subject" id="subject" class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6">
+                        @error('subject') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="sm:col-span-2">
-                    <label for="message" class="block text-sm font-semibold leading-6 text-white">Message</label>
+                    <label for="message" class="block text-sm font-semibold leading-6 text-white">Message *</label>
                     <div class="mt-2.5">
-                        <textarea wire:model="message" id="message" rows="4" class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"></textarea>
+                        <textarea wire:model="message" id="message" rows="4" required class="block w-full rounded-md border-0 bg-white/5 py-2 px-3.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"></textarea>
+                        @error('message') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                     </div>
                 </div>
             </div>

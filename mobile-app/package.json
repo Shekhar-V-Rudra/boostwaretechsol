@@ -1,0 +1,31 @@
+{
+  "name": "boostwaretech-mobile",
+  "version": "1.0.0",
+  "description": "BoostwareTech Solutions Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cap:sync": "cap sync",
+    "cap:ios": "cap sync ios && cap open ios",
+    "cap:android": "cap sync android && cap open android",
+    "build:ios": "npm run build && cap sync ios",
+    "build:android": "npm run build && cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/keyboard": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "axios": "^1.11.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^8.0.2",
+    "@capacitor/ios": "^6.0.0",
+    "vite": "^7.0.7"
+  }
+}

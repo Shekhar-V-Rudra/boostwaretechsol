@@ -1,72 +1,110 @@
-<div class="space-y-24 pb-24">
+<div class="space-y-20 pb-20">
     <!-- Hero Section -->
-    <div class="relative isolate pt-14">
-        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    <section class="relative pt-20 pb-16">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-3xl text-center">
+                <h1 class="text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                    IT Services That <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Drive Success</span>
+                </h1>
+                <p class="mt-6 text-lg leading-8 text-gray-300">
+                    Professional web development, mobile apps, and digital solutions. We transform your vision into powerful technology.
+                </p>
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    <a href="/contact" wire:navigate class="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-blue-500 transition">
+                        Get Started
+                    </a>
+                    <a href="/portfolio" wire:navigate class="text-sm font-semibold text-white hover:text-blue-300">
+                        View Work →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-white">Our IT Services</h2>
+            <p class="mt-2 text-gray-400">Comprehensive technology solutions for your business</p>
         </div>
         
-        <div class="py-24 sm:py-32 lg:pb-40">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl animate-fade-in-up">
-                        Transforming Ideas into <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Digital Reality</span>
-                    </h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-300 animate-fade-in-up delay-100">
-                        High-performance websites, cutting-edge apps, and premium digital designs. We build the future of your business with speed and precision.
-                    </p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6 animate-fade-in-up delay-200">
-                        <a href="/contact" class="rounded-full bg-blue-600 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:scale-105">
-                            Start Your Project
-                        </a>
-                        <a href="/portfolio" class="text-sm font-semibold leading-6 text-white hover:text-blue-300 transition">
-                            View Portfolio <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Grid -->
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center mb-16">
-            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Expertise</h2>
-            <p class="mt-2 text-lg leading-8 text-gray-400">Comprehensive digital solutions tailored for growth.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <!-- Card 1 -->
-            <div class="relative group rounded-2xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 hover:border-blue-500/50 transition-all hover:-translate-y-1">
-                <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400 group-hover:text-white group-hover:bg-blue-600 transition-colors">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Website Development -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-blue-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white">Web Development</h3>
-                <p class="mt-4 text-gray-400">Lightning-fast, SEO-optimized websites built with Laravel and modern technologies.</p>
+                <h3 class="text-xl font-semibold text-white mb-2">Website Development</h3>
+                <p class="text-gray-400">Custom websites built with modern frameworks. Fast, secure, and SEO-optimized.</p>
             </div>
 
-            <!-- Card 2 -->
-            <div class="relative group rounded-2xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all hover:-translate-y-1">
-                 <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20 text-purple-400 group-hover:text-white group-hover:bg-purple-600 transition-colors">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            <!-- Mobile Apps -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-purple-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white">App Development</h3>
-                <p class="mt-4 text-gray-400">Native and cross-platform mobile applications designed for performance and scale.</p>
+                <h3 class="text-xl font-semibold text-white mb-2">Mobile Applications</h3>
+                <p class="text-gray-400">Native iOS and Android apps. Cross-platform solutions for maximum reach.</p>
             </div>
 
-            <!-- Card 3 -->
-            <div class="relative group rounded-2xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 hover:border-pink-500/50 transition-all hover:-translate-y-1">
-                 <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500/20 text-pink-400 group-hover:text-white group-hover:bg-pink-600 transition-colors">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+            <!-- App Updates -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-pink-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold text-white">UI/UX Design</h3>
-                <p class="mt-4 text-gray-400">Stunning interfaces and intuitive user experiences that captivate your audience.</p>
+                <h3 class="text-xl font-semibold text-white mb-2">App Updates & Maintenance</h3>
+                <p class="text-gray-400">Keep your apps current with regular updates, bug fixes, and new features.</p>
+            </div>
+
+            <!-- UI/UX Design -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-green-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">UI/UX Design</h3>
+                <p class="text-gray-400">Beautiful, intuitive designs that enhance user experience and drive engagement.</p>
+            </div>
+
+            <!-- E-commerce -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-yellow-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">E-commerce Solutions</h3>
+                <p class="text-gray-400">Complete online stores with payment integration and inventory management.</p>
+            </div>
+
+            <!-- API Development -->
+            <div class="rounded-xl bg-white/5 p-6 border border-white/10 hover:border-indigo-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-indigo-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">API Development</h3>
+                <p class="text-gray-400">RESTful APIs and backend services for seamless integration and scalability.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
+            <p class="text-blue-100 mb-6">Let's discuss how we can help transform your business with technology.</p>
+            <a href="/contact" wire:navigate class="inline-block rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-gray-100 transition">
+                Contact Us Today
+            </a>
+        </div>
+    </section>
 </div>

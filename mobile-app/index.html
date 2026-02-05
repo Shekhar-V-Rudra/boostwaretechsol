@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>BoostwareTech Solutions</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">BoostwareTech</h1>
+                <button class="menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1 class="hero-title">IT Services That <span class="gradient-text">Drive Success</span></h1>
+                <p class="hero-subtitle">Professional web development, mobile apps, and digital solutions.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showSection('contact')">Get Started</button>
+                    <button class="btn btn-outline" onclick="showSection('portfolio')">View Work</button>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Website Development</h3>
+                    <p>Custom websites built with modern frameworks</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile Apps</h3>
+                    <p>Native iOS and Android applications</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Beautiful and intuitive designs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <div class="filter-buttons" id="portfolioFilters"></div>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="loading">Loading portfolio...</div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="section-header">
+                <h2>Our IT Services</h2>
+            </div>
+            <div class="services-list" id="servicesList"></div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <div class="section-header">
+                <h2>Latest Articles</h2>
+                <div class="filter-buttons" id="blogFilters"></div>
+            </div>
+            <div class="blog-list" id="blogList">
+                <div class="loading">Loading articles...</div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Phone (Optional)">
+                <input type="text" placeholder="Subject (Optional)">
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
