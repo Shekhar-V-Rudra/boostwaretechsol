@@ -1,68 +1,706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - BoostwareTech Solutions</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script defer src="assets/js/main.js"></script>
-</head>
-<body data-page="home">
-    <div id="site-header"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BoostwareTech Solutions builds intelligent digital products, resilient cloud platforms, and AI-powered experiences for ambitious businesses."
+    />
+    <meta name="theme-color" content="#0a1714" />
+    <title>BoostwareTech Solutions — Build what's next</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+              sans: ["DM Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+    <style>
+      :root {
+        font-family: "DM Sans", sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+        scroll-padding-top: 2rem;
+      }
 
-    <main>
-        <section class="hero">
-            <div class="container hero-wrap">
-                <h1>IT Services That Drive Success</h1>
-                <p>Professional web development, mobile apps, and digital solutions. We transform your vision into powerful technology.</p>
-                <a class="btn" href="services.html">Explore Our Services</a>
+      [x-cloak] { display: none !important; }
+      .hero-photo {
+        background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2400&q=85");
+        background-position: center 42%;
+        background-size: cover;
+        opacity: 0.74;
+      }
+      .hero-shade {
+        background: linear-gradient(90deg, rgba(5, 17, 14, 0.94) 0%, rgba(5, 17, 14, 0.75) 38%, rgba(5, 17, 14, 0.25) 100%), linear-gradient(0deg, rgba(5, 17, 14, 0.65) 0%, transparent 42%);
+      }
+      .hero-grid {
+        background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+        background-size: 96px 96px;
+        mask-image: linear-gradient(90deg, black, transparent 78%);
+      }
+      .brand-mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 22%);
+        border-radius: 12px;
+        color: #fff;
+      }
+      .brand-mark svg { width: 25px; height: 25px; }
+      .brand-mark-small { width: 32px; height: 32px; border-radius: 10px; }
+      .brand-mark-small svg { width: 21px; height: 21px; }
+      .nav-link { transition: color 160ms ease; }
+      .nav-link:hover { color: #a7f3c0; }
+      .mobile-link {
+        border-radius: 0.75rem;
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+        color: rgb(255 255 255 / 78%);
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+      .mobile-link:hover { background: rgb(255 255 255 / 8%); color: #a7f3c0; }
+      .avatar {
+        display: block;
+        width: 34px;
+        height: 34px;
+        border: 2px solid #10231c;
+        border-radius: 9999px;
+        background-position: center;
+        background-size: cover;
+      }
+      .avatar-one { background-image: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=96&h=96&q=80"); }
+      .avatar-two { background-image: url("https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=80"); }
+      .avatar-three { background-image: url("https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=96&h=96&q=80"); }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: #426a55;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      .eyebrow-dot { width: 7px; height: 7px; border-radius: 9999px; background: #54a276; }
+      .eyebrow-light { color: #a7f3c0; }
+      .eyebrow-light .eyebrow-dot { background: #a7f3c0; }
+      .service-card {
+        position: relative;
+        min-height: 338px;
+        border-bottom: 1px solid #d5dfd7;
+        border-right: 1px solid #d5dfd7;
+        padding: 2rem;
+        transition: background-color 180ms ease;
+      }
+      .service-card:hover { background: #f8faf8; }
+      .service-number { color: #91a097; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; }
+      .service-icon {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        margin-top: 2rem;
+        place-items: center;
+        border: 1px solid #d5dfd7;
+        border-radius: 14px;
+        color: #34644a;
+      }
+      .service-icon svg { width: 27px; height: 27px; }
+      .service-arrow {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border: 1px solid #d5dfd7;
+        border-radius: 50%;
+        color: #34644a;
+        transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+      }
+      .service-card:hover .service-arrow { border-color: #10231c; background: #10231c; color: #a7f3c0; }
+      .stat-card { min-height: 185px; background: #10231c; padding: 2rem; }
+      .stat-value {
+        font-family: "Manrope", sans-serif;
+        font-size: clamp(2.5rem, 5vw, 4.25rem);
+        font-weight: 500;
+        letter-spacing: -0.075em;
+        line-height: 1;
+      }
+      .stat-value span { color: #a7f3c0; font-size: 0.55em; letter-spacing: -0.04em; }
+      .stat-label { margin-top: 1rem; color: rgb(255 255 255 / 55%); font-size: 0.75rem; line-height: 1.5; }
+      .approach-row { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.6rem 0; }
+      .approach-count { padding-top: 0.15rem; color: #54a276; font-size: 0.72rem; font-weight: 700; }
+      .feature-image {
+        background-image: linear-gradient(90deg, rgb(16 35 28 / 5%), rgb(16 35 28 / 0%)), url("https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=85");
+        background-position: center;
+        background-size: cover;
+      }
+      .design-browser {
+        overflow: hidden;
+        border: 1px solid #dce5dd;
+        border-radius: 0.8rem;
+        background: white;
+        box-shadow: 0 14px 35px rgb(16 35 28 / 8%);
+      }
+      .design-browser-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        height: 1.6rem;
+        border-bottom: 1px solid #edf1ed;
+        background: #fff;
+        padding: 0 0.55rem;
+      }
+      .design-browser-dot { width: 5px; height: 5px; border-radius: 9999px; background: #d9e2da; }
+      .design-phone {
+        width: 118px;
+        overflow: hidden;
+        border: 4px solid #18342a;
+        border-radius: 1.2rem;
+        background: #fff;
+        box-shadow: 0 15px 35px rgb(16 35 28 / 17%);
+      }
+      .design-phone-notch { width: 40px; height: 9px; margin: 0 auto; border-radius: 0 0 8px 8px; background: #18342a; }
+      .design-filter {
+        border: 1px solid #dce5dd;
+        border-radius: 9999px;
+        padding: 0.65rem 1rem;
+        color: #52645a;
+        font-size: 0.78rem;
+        font-weight: 600;
+        transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+      }
+      .design-filter:hover, .design-filter[aria-pressed="true"] {
+        border-color: #18342a;
+        background: #18342a;
+        color: white;
+      }
+      @media (max-width: 639px) {
+        .hero-section { min-height: 760px; }
+        .hero-shade { background: linear-gradient(90deg, rgba(5, 17, 14, 0.87), rgba(5, 17, 14, 0.45)), linear-gradient(0deg, rgba(5, 17, 14, 0.7), transparent 60%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="min-h-screen overflow-hidden bg-[#f8faf8] text-[#11231e]" x-data="{ menuOpen: false, year: new Date().getFullYear(), designFilter: 'all' }">
+      <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-6 sm:px-10 lg:px-16" aria-label="Main navigation">
+          <a class="flex items-center gap-3 text-white" href="#home" aria-label="BoostwareTech Solutions home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M6 22.7 13.3 8l4.1 8.1 3.1-5.4L27 22.7H6Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12.3 22.7 16 15.2l3.8 7.5" stroke="#a7f3c0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <span class="font-display text-[15px] font-bold tracking-[-0.04em] sm:text-base">boostware<span class="text-[#a7f3c0]">tech</span></span>
+          </a>
+
+          <div class="hidden items-center gap-9 text-[13px] font-medium text-white/75 lg:flex">
+            <a class="nav-link" href="#it-services">IT services</a>
+            <a class="nav-link" href="#services">Web &amp; apps</a>
+            <a class="nav-link" href="#designs">Designs</a>
+            <a class="nav-link" href="#projects">Portfolio</a>
+            <a class="nav-link" href="#approach">How we work</a>
+            <a class="nav-link" href="#impact">Our impact</a>
+            <a class="nav-link" href="#about">About us</a>
+          </div>
+
+          <a class="hidden items-center gap-2 rounded-full border border-white/25 px-5 py-3 text-[13px] font-semibold text-white transition hover:border-[#a7f3c0] hover:bg-white/10 sm:flex" href="#contact">
+            Let's talk
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <button
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white lg:hidden"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-controls="mobile-navigation"
+            :aria-expanded="menuOpen.toString()"
+            @click="menuOpen = !menuOpen"
+          >
+            <svg x-show="!menuOpen" aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            <svg x-cloak x-show="menuOpen" aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </nav>
+
+        <div id="mobile-navigation" x-cloak x-show="menuOpen" x-transition class="mx-5 rounded-2xl border border-white/10 bg-[#0a1714]/95 p-5 text-white shadow-2xl backdrop-blur-xl lg:hidden">
+          <div class="flex flex-col gap-1">
+            <a class="mobile-link" href="#it-services" @click="menuOpen = false">IT services</a>
+            <a class="mobile-link" href="#services" @click="menuOpen = false">Web &amp; apps</a>
+            <a class="mobile-link" href="#designs" @click="menuOpen = false">Designs</a>
+            <a class="mobile-link" href="#projects" @click="menuOpen = false">Portfolio</a>
+            <a class="mobile-link" href="#approach" @click="menuOpen = false">How we work</a>
+            <a class="mobile-link" href="#impact" @click="menuOpen = false">Our impact</a>
+            <a class="mobile-link" href="#about" @click="menuOpen = false">About us</a>
+            <a class="mt-3 flex items-center justify-between rounded-xl bg-[#a7f3c0] px-4 py-3 font-semibold text-[#10231c]" href="#contact" @click="menuOpen = false">Let's talk <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="home" class="hero-section relative flex min-h-[760px] items-end overflow-hidden bg-[#0a1714] pt-32 sm:min-h-[800px] lg:min-h-[850px]">
+          <div class="hero-photo absolute inset-0" role="img" aria-label="Contemporary glass office tower against a clear sky"></div>
+          <div class="hero-shade absolute inset-0"></div>
+          <div class="hero-grid absolute inset-0 opacity-20" aria-hidden="true"></div>
+          <div class="relative z-10 mx-auto grid w-full max-w-[1440px] items-end gap-12 px-6 pb-20 sm:px-10 sm:pb-24 lg:grid-cols-[1.2fr_0.8fr] lg:px-16 lg:pb-28">
+            <div class="max-w-[760px]">
+              <p class="mb-7 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#a7f3c0]">
+                <span class="h-px w-8 bg-[#a7f3c0]"></span>
+                Technology that moves business forward
+              </p>
+              <h1 class="font-display text-[clamp(3.5rem,8.4vw,7.6rem)] font-semibold leading-[0.96] tracking-[-0.075em] text-white">
+                Make your<br />next move <span class="text-[#a7f3c0]">matter.</span>
+              </h1>
+              <p class="mt-8 max-w-[540px] text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+                We turn ambitious ideas into software, AI, and cloud experiences that help the world's most forward-thinking businesses grow.
+              </p>
+              <div class="mt-9 flex flex-wrap items-center gap-4">
+                <a class="inline-flex items-center gap-3 rounded-full bg-[#a7f3c0] px-6 py-4 text-sm font-bold text-[#10231c] transition hover:bg-white" href="#contact">
+                  Build with us <span aria-hidden="true">↗</span>
+                </a>
+                <a class="inline-flex items-center gap-2 px-4 py-4 text-sm font-semibold text-white transition hover:text-[#a7f3c0]" href="#it-services">
+                  Explore our capabilities <span aria-hidden="true">↓</span>
+                </a>
+              </div>
             </div>
-        </section>
 
-        <section class="services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our IT Services</h2>
-                    <p>Comprehensive technology solutions for your business</p>
+            <div class="hidden justify-self-end pb-2 lg:block">
+              <div class="flex items-center gap-4 border-l border-white/30 pl-5">
+                <div class="flex -space-x-3" aria-hidden="true">
+                  <span class="avatar avatar-one"></span><span class="avatar avatar-two"></span><span class="avatar avatar-three"></span>
                 </div>
-                <div class="service-grid">
-                    <article class="service-card">
-                        <h3>Website Development</h3>
-                        <p>Custom websites built with modern frameworks. Fast, secure, and SEO-optimized.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>Mobile Applications</h3>
-                        <p>Native iOS and Android apps. Cross-platform solutions for maximum reach.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>App Updates &amp; Maintenance</h3>
-                        <p>Keep your apps current with regular updates, bug fixes, and new features.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>UI/UX Design</h3>
-                        <p>Beautiful, intuitive designs that enhance user experience and drive engagement.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>E-commerce Solutions</h3>
-                        <p>Complete online stores with payment integration and inventory management.</p>
-                    </article>
-                    <article class="service-card">
-                        <h3>API Development</h3>
-                        <p>RESTful APIs and backend services for seamless integration and scalability.</p>
-                    </article>
+                <div>
+                  <p class="text-sm font-semibold text-white">People-first. Always.</p>
+                  <p class="mt-1 text-xs text-white/55">One team, everywhere.</p>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 z-10 border-t border-white/15 bg-[#0a1714]/25 backdrop-blur-sm">
+            <div class="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-x-8 gap-y-3 px-6 py-5 text-[10px] font-semibold uppercase tracking-[0.17em] text-white/55 sm:px-10 lg:px-16">
+              <span>Strategy</span><span class="hidden h-px flex-1 bg-white/15 sm:block"></span>
+              <span>Engineering</span><span class="hidden h-px flex-1 bg-white/15 sm:block"></span>
+              <span>Intelligence</span><span class="hidden h-px flex-1 bg-white/15 sm:block"></span>
+              <span>Transformation</span>
+            </div>
+          </div>
         </section>
 
-        <section class="cta" id="contact">
-            <div class="container cta-wrap">
-                <h2>Ready to Start Your Project?</h2>
-                <p>Let's discuss how we can help transform your business with technology.</p>
-                <a class="btn btn-outline" href="about.html">Contact Us Today</a>
+        <section id="it-services" class="mx-auto max-w-[1440px] px-6 py-20 sm:px-10 sm:py-24 lg:px-16">
+          <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> IT services</p>
+              <h2 class="mt-6 font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-5xl">Technology help<br />for real business needs.</h2>
+              <p class="mt-6 max-w-[420px] text-[15px] leading-7 text-[#68766f]">From planning and development to security and ongoing support, we help you choose the right next step—without the jargon.</p>
+              <a class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#1d4937] transition hover:text-[#548065]" href="#contact">Talk through your needs <span aria-hidden="true">↗</span></a>
             </div>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">01</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">Software development</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Custom websites, applications, and business tools designed around how you work.</p>
+              </article>
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">02</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">Cloud &amp; DevOps</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Deploy and operate applications with dependable cloud infrastructure and workflows.</p>
+              </article>
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">03</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">AI &amp; automation</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Explore practical ways to reduce repetitive tasks and make better use of your data.</p>
+              </article>
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">04</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">Security &amp; quality</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Build safer, more reliable software with thoughtful testing and security practices.</p>
+              </article>
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">05</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">IT consulting</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Get clear advice on technology choices, project planning, and modernizing systems.</p>
+              </article>
+              <article class="rounded-2xl border border-[#e1e8e3] p-5 sm:p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-[#548065]">06</p>
+                <h3 class="mt-4 font-display text-lg font-semibold tracking-[-0.03em]">Maintenance &amp; support</h3>
+                <p class="mt-2 text-sm leading-6 text-[#718078]">Keep existing websites and applications updated, monitored, and working smoothly.</p>
+              </article>
+            </div>
+          </div>
         </section>
-    </main>
 
-    <div id="site-footer"></div>
-</body>
+        <section id="designs" class="bg-[#eef3ef]">
+          <div class="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 sm:py-28 lg:px-16">
+            <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-dot"></span> Website &amp; app designs</p>
+                <h2 class="mt-6 max-w-[700px] font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">Explore what we<br class="hidden sm:block" /> can design for you.</h2>
+              </div>
+              <p class="max-w-[380px] text-[15px] leading-7 text-[#68766f]">Browse design directions for different kinds of websites and apps. Every interface can be tailored to your brand and users.</p>
+            </div>
+
+            <div class="mt-9 flex flex-wrap gap-2" role="group" aria-label="Filter designs">
+              <button class="design-filter" type="button" :aria-pressed="designFilter === 'all'" @click="designFilter = 'all'">All designs</button>
+              <button class="design-filter" type="button" :aria-pressed="designFilter === 'website'" @click="designFilter = 'website'">Websites</button>
+              <button class="design-filter" type="button" :aria-pressed="designFilter === 'web-app'" @click="designFilter = 'web-app'">Web apps</button>
+              <button class="design-filter" type="button" :aria-pressed="designFilter === 'mobile-app'" @click="designFilter = 'mobile-app'">Mobile apps</button>
+            </div>
+
+            <div class="mt-8 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <article x-show="designFilter === 'all' || designFilter === 'website'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center bg-[#e5efe7] p-5" aria-hidden="true">
+                  <div class="design-browser w-full max-w-[310px]">
+                    <div class="design-browser-bar"><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="ml-2 h-2 w-20 rounded-full bg-[#f0f3f0]"></span></div>
+                    <div class="flex items-center justify-between px-3 py-2 text-[7px] font-bold text-[#234532]"><span>GREEN &amp; CO.</span><span class="flex gap-2 font-medium text-[#738078]"><span>About</span><span>Services</span><span>Contact</span></span></div>
+                    <div class="grid grid-cols-[1.1fr_.9fr] gap-2 px-3 pb-3 pt-2">
+                      <div class="py-2"><div class="h-2 w-20 rounded bg-[#234532]"></div><div class="mt-1 h-2 w-14 rounded bg-[#234532]"></div><div class="mt-2 h-1 w-24 rounded bg-[#c9d5cb]"></div><div class="mt-1 h-1 w-20 rounded bg-[#dce5dd]"></div><div class="mt-3 h-4 w-12 rounded-full bg-[#83b48f]"></div></div>
+                      <div class="rounded-lg bg-gradient-to-br from-[#c4d8c3] via-[#8eb18d] to-[#446c52]"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Website · Business</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Business &amp; company websites</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Introduce your business, explain your services, and help customers contact you.</p>
+                </div>
+              </article>
+
+              <article x-show="designFilter === 'all' || designFilter === 'website'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center bg-[#f4ede4] p-5" aria-hidden="true">
+                  <div class="design-browser w-full max-w-[310px]">
+                    <div class="design-browser-bar"><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="ml-2 h-2 w-20 rounded-full bg-[#f0f3f0]"></span></div>
+                    <div class="flex items-center justify-between px-3 py-2 text-[7px] font-bold text-[#47372d]"><span>FORM &amp; FIELD</span><span class="text-[#847a70]">New · Shop · About</span></div>
+                    <div class="mx-3 rounded-md bg-[#eee5d8] px-3 py-2"><p class="text-[10px] font-semibold text-[#47372d]">Everyday things,<br />made to last.</p><div class="mt-2 h-3 w-12 rounded-full bg-[#96745b]"></div></div>
+                    <div class="grid grid-cols-3 gap-2 px-3 py-2"><div class="h-9 rounded bg-[#d6c5b0]"></div><div class="h-9 rounded bg-[#c5d0c2]"></div><div class="h-9 rounded bg-[#e2d5c7]"></div></div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Website · E-commerce</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Online stores &amp; shopping</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Showcase products, take online orders, and make it easy to shop on any device.</p>
+                </div>
+              </article>
+
+              <article x-show="designFilter === 'all' || designFilter === 'website'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center bg-[#e8eaf1] p-5" aria-hidden="true">
+                  <div class="design-browser w-full max-w-[310px]">
+                    <div class="design-browser-bar"><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="ml-2 h-2 w-20 rounded-full bg-[#f0f3f0]"></span></div>
+                    <div class="flex items-center justify-between px-3 py-2 text-[7px] font-bold text-[#242943]"><span>STUDIO / A</span><span class="text-[#777b8c]">Work · Studio · Contact</span></div>
+                    <div class="px-3 pb-3 pt-2"><p class="text-[6px] uppercase tracking-[0.15em] text-[#75798a]">Independent creative studio</p><p class="mt-1 text-[14px] font-semibold tracking-[-0.06em] text-[#242943]">Ideas into<br />identities.</p><div class="mt-2 grid grid-cols-2 gap-2"><div class="h-10 rounded bg-gradient-to-br from-[#e8ae7b] to-[#bb674f]"></div><div class="h-10 rounded bg-gradient-to-br from-[#9ba4cc] to-[#41496f]"></div></div></div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Website · Portfolio</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Creative &amp; portfolio sites</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Present your work, tell your story, and give potential clients a clear way to connect.</p>
+                </div>
+              </article>
+
+              <article x-show="designFilter === 'all' || designFilter === 'web-app'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center bg-[#e8edf2] p-5" aria-hidden="true">
+                  <div class="design-browser w-full max-w-[310px]">
+                    <div class="design-browser-bar"><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="ml-2 h-2 w-20 rounded-full bg-[#f0f3f0]"></span></div>
+                    <div class="grid min-h-36 grid-cols-[58px_1fr]">
+                      <div class="space-y-2 bg-[#18342a] p-2"><div class="h-2 w-8 rounded bg-white/70"></div><div class="h-1.5 w-9 rounded bg-white/30"></div><div class="h-1.5 w-7 rounded bg-white/30"></div><div class="h-1.5 w-10 rounded bg-white/30"></div></div>
+                      <div class="p-3"><div class="h-2 w-20 rounded bg-[#2a4035]"></div><div class="mt-2 grid grid-cols-3 gap-1.5"><div class="h-7 rounded bg-[#f1f4f1]"></div><div class="h-7 rounded bg-[#f1f4f1]"></div><div class="h-7 rounded bg-[#dff2e5]"></div></div><div class="mt-2 h-10 rounded bg-[#f1f4f1]"><div class="ml-2 mt-2 h-1 w-20 rounded bg-[#c9d5cb]"></div><div class="ml-2 mt-1 h-1 w-28 rounded bg-[#dce5dd]"></div></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Web app · Dashboard</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Admin &amp; analytics dashboards</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Manage information, review reports, and track the important details in one workspace.</p>
+                </div>
+              </article>
+
+              <article x-show="designFilter === 'all' || designFilter === 'web-app'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center bg-[#f0eaf1] p-5" aria-hidden="true">
+                  <div class="design-browser w-full max-w-[310px]">
+                    <div class="design-browser-bar"><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="design-browser-dot"></span><span class="ml-2 h-2 w-20 rounded-full bg-[#f0f3f0]"></span></div>
+                    <div class="px-4 py-3"><div class="flex justify-between"><div><p class="text-[6px] text-[#797080]">Good morning, Alex</p><p class="mt-1 text-[10px] font-semibold text-[#342940]">Your appointments</p></div><div class="h-5 w-5 rounded-full bg-[#e9ddec]"></div></div><div class="mt-3 flex items-center gap-2 rounded-md bg-[#f7f3f8] p-2"><div class="h-7 w-7 rounded bg-[#d8c3dc]"></div><div class="flex-1"><div class="h-1.5 w-16 rounded bg-[#65516c]"></div><div class="mt-1 h-1 w-12 rounded bg-[#cfc4d2]"></div></div><div class="h-3 w-8 rounded-full bg-[#8e7195]"></div></div><div class="mt-2 flex items-center gap-2 rounded-md bg-[#f7f3f8] p-2"><div class="h-7 w-7 rounded bg-[#d4ded0]"></div><div class="flex-1"><div class="h-1.5 w-14 rounded bg-[#65516c]"></div><div class="mt-1 h-1 w-10 rounded bg-[#cfc4d2]"></div></div><div class="h-3 w-8 rounded-full bg-[#8e7195]"></div></div></div>
+                  </div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Web app · Booking</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Booking &amp; customer portals</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Let customers book appointments, manage requests, and check updates online.</p>
+                </div>
+              </article>
+
+              <article x-show="designFilter === 'all' || designFilter === 'mobile-app'" x-transition class="overflow-hidden rounded-2xl border border-[#dce5dd] bg-white">
+                <div class="flex h-56 items-center justify-center gap-5 bg-[#e4f0e7] p-5" aria-hidden="true">
+                  <div class="design-phone">
+                    <div class="design-phone-notch"></div>
+                    <div class="px-2 pb-3 pt-2">
+                      <div class="flex items-center justify-between"><div><p class="text-[6px] text-[#718078]">Good morning</p><p class="text-[9px] font-bold text-[#18342a]">Find your flow</p></div><div class="h-4 w-4 rounded-full bg-[#dff2e5]"></div></div>
+                      <div class="mt-2 h-12 rounded-lg bg-gradient-to-br from-[#8eb18d] to-[#446c52]"></div>
+                      <div class="mt-2 h-1.5 w-14 rounded bg-[#b9c7bb]"></div><div class="mt-1 h-1 w-20 rounded bg-[#e0e7e0]"></div>
+                      <div class="mt-2 grid grid-cols-2 gap-1"><div class="h-7 rounded bg-[#eef3ef]"></div><div class="h-7 rounded bg-[#eef3ef]"></div></div>
+                      <div class="mt-2 h-4 rounded-full bg-[#18342a]"></div>
+                    </div>
+                  </div>
+                  <div class="max-w-24 text-left"><p class="text-[9px] font-semibold text-[#345342]">Designed for the small screen</p><p class="mt-1 text-[8px] leading-3 text-[#718078]">Simple navigation, clear actions, and comfortable reading.</p></div>
+                </div>
+                <div class="p-6">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#548065]">Mobile app · Customer experience</p>
+                  <h3 class="mt-2 font-display text-lg font-semibold tracking-[-0.03em]">Mobile apps for your customers</h3>
+                  <p class="mt-2 text-sm leading-6 text-[#718078]">Put useful features in your customers' hands with an interface made for mobile.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 rounded-2xl bg-[#dff2e5] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+              <div>
+                <h3 class="font-display text-lg font-semibold tracking-[-0.03em]">Have a design or app idea in mind?</h3>
+                <p class="mt-1 text-sm leading-6 text-[#68766f]">Tell us what you want to build. We’ll help you plan the right screens and features.</p>
+              </div>
+              <a class="inline-flex w-fit shrink-0 items-center gap-2 rounded-full bg-[#10231c] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1d4937]" href="#contact">Discuss your idea <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 sm:py-32 lg:px-16 lg:py-36">
+          <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> Who we are</p>
+              <p class="mt-7 font-display text-sm font-semibold tracking-[-0.02em] text-[#61716a]">A technology partner built for what's next.</p>
+            </div>
+            <div>
+              <h2 class="font-display text-3xl font-medium leading-[1.18] tracking-[-0.055em] text-[#11231e] sm:text-5xl sm:leading-[1.15]">
+                Big enough to take on the complex. Close enough to care about every detail.
+              </h2>
+              <div class="mt-8 flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+                <p class="max-w-[560px] text-[15px] leading-7 text-[#68766f]">
+                  BoostwareTech brings strategists, designers, engineers, and AI specialists together to solve the challenges that matter most. From the first idea to lasting impact, we build for people and progress.
+                </p>
+                <a class="shrink-0 border-b border-[#1d4937] pb-2 text-sm font-semibold text-[#1d4937] transition hover:border-[#5c9c77] hover:text-[#5c9c77]" href="#approach">Get to know us <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="bg-[#eef3ef]">
+          <div class="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 sm:py-28 lg:px-16">
+            <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+              <div>
+                <p class="eyebrow"><span class="eyebrow-dot"></span> Website &amp; app services</p>
+                <h2 class="mt-6 max-w-[650px] font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">What do you need<br /><span class="text-[#718078]">to build?</span></h2>
+              </div>
+              <p class="max-w-[380px] text-[15px] leading-7 text-[#68766f]">Choose a service to get started. We can help with one part of your project or guide you from idea to launch.</p>
+            </div>
+            <div class="mt-14 grid border-l border-t border-[#d5dfd7] sm:grid-cols-2 lg:grid-cols-3">
+              <article class="service-card group">
+                <span class="service-number">01</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="1.7"/><path d="m20 20 6 6M11 14h6m-3-3v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Business websites</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">A polished, mobile-friendly website that explains what you offer and helps customers get in touch.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss a business website"><span aria-hidden="true">↗</span></a>
+              </article>
+              <article class="service-card group">
+                <span class="service-number">02</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="5" y="6" width="22" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M12 27h8m-4-5v5m-5-13 3 3 5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Online stores</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">Sell online with product pages, shopping carts, secure payments, and simple order management.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss an online store"><span aria-hidden="true">↗</span></a>
+              </article>
+              <article class="service-card group">
+                <span class="service-number">03</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4v4m0 16v4M4 16h4m16 0h4M7.5 7.5l2.8 2.8m11.4 11.4 2.8 2.8m0-17-2.8 2.8m-11.4 11.4-2.8 2.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Web applications</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">Custom tools your team or customers can use online, like booking systems, dashboards, and portals.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss a web application"><span aria-hidden="true">↗</span></a>
+              </article>
+              <article class="service-card group">
+                <span class="service-number">04</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M8 23.5a5 5 0 0 1 .3-10A8 8 0 0 1 24 12a6 6 0 0 1 .5 12H8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m12 18 3 3 5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Mobile apps</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">Useful mobile experiences that make it easier for people to connect with your service on the go.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss a mobile app"><span aria-hidden="true">↗</span></a>
+              </article>
+              <article class="service-card group">
+                <span class="service-number">05</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M7 9h18v14H7zM11 13h10m-10 4h6m-6 4h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Custom business software</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">Replace repetitive manual work with software shaped around the way your business actually works.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss custom business software"><span aria-hidden="true">↗</span></a>
+              </article>
+              <article class="service-card group">
+                <span class="service-number">06</span>
+                <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M24 11a9 9 0 0 0-15.5-2L6 12m0 0V7m0 5h5m-3 9a9 9 0 0 0 15.5 2L26 20m0 0v5m0-5h-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h3 class="font-display text-xl font-semibold tracking-[-0.04em]">Updates &amp; support</h3>
+                <p class="mt-4 text-sm leading-6 text-[#718078]">Keep your website or app secure, up to date, and running smoothly as your needs change.</p>
+                <a class="service-arrow" href="#contact" aria-label="Discuss website or app support"><span aria-hidden="true">↗</span></a>
+              </article>
+            </div>
+            <p class="mt-6 text-sm leading-6 text-[#68766f]">Not sure what you need? <a class="font-semibold text-[#1d4937] underline decoration-[#9bb7a4] underline-offset-4 hover:text-[#548065]" href="#contact">Tell us about your idea</a> and we'll help you find a starting point.</p>
+          </div>
+        </section>
+
+        <section id="projects" class="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 sm:py-28 lg:px-16">
+          <div class="flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> Portfolio · Example projects</p>
+              <h2 class="mt-6 max-w-[700px] font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">Ideas we can turn<br class="hidden sm:block" /> into useful products.</h2>
+            </div>
+            <p class="max-w-[380px] text-[15px] leading-7 text-[#68766f]">Here are examples of website and app projects we can create. Each one can be tailored to your business, customers, and budget.</p>
+          </div>
+
+          <div class="mt-14 grid gap-5 lg:grid-cols-3">
+            <article class="flex min-h-[320px] flex-col rounded-[1.5rem] bg-[#eef3ef] p-7 sm:p-9">
+              <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#548065]">Example 01 · Online store</p>
+              <h3 class="mt-8 font-display text-2xl font-semibold tracking-[-0.045em]">Help customers shop with ease.</h3>
+              <p class="mt-4 flex-1 text-sm leading-6 text-[#68766f]">A simple store where customers can browse products, pay securely, and track orders. Your team can manage products and stock in one place.</p>
+              <div class="mt-7 flex flex-wrap gap-2" aria-label="Technologies used">
+                <span class="rounded-full border border-[#d5dfd7] px-3 py-1.5 text-xs font-semibold text-[#345342]">PHP</span>
+                <span class="rounded-full border border-[#d5dfd7] px-3 py-1.5 text-xs font-semibold text-[#345342]">Laravel</span>
+                <span class="rounded-full border border-[#d5dfd7] px-3 py-1.5 text-xs font-semibold text-[#345342]">Vue.js</span>
+              </div>
+            </article>
+
+            <article class="flex min-h-[320px] flex-col rounded-[1.5rem] bg-[#10231c] p-7 text-white sm:p-9">
+              <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#a7f3c0]">Example 02 · Business dashboard</p>
+              <h3 class="mt-8 font-display text-2xl font-semibold tracking-[-0.045em]">See your business at a glance.</h3>
+              <p class="mt-4 flex-1 text-sm leading-6 text-white/60">A private dashboard that brings sales, activity, and key reports together, so your team can quickly see what needs attention.</p>
+              <div class="mt-7 flex flex-wrap gap-2" aria-label="Technologies used">
+                <span class="rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/80">Node.js</span>
+                <span class="rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/80">React.js</span>
+                <span class="rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold text-white/80">APIs</span>
+              </div>
+            </article>
+
+            <article class="flex min-h-[320px] flex-col rounded-[1.5rem] bg-[#dff2e5] p-7 sm:p-9">
+              <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#548065]">Example 03 · Customer portal</p>
+              <h3 class="mt-8 font-display text-2xl font-semibold tracking-[-0.045em]">Make getting help simple.</h3>
+              <p class="mt-4 flex-1 text-sm leading-6 text-[#68766f]">A secure place where customers can send requests, check updates, and find important information without waiting on a call.</p>
+              <div class="mt-7 flex flex-wrap gap-2" aria-label="Technologies used">
+                <span class="rounded-full border border-[#c6ddcd] px-3 py-1.5 text-xs font-semibold text-[#345342]">Laravel</span>
+                <span class="rounded-full border border-[#c6ddcd] px-3 py-1.5 text-xs font-semibold text-[#345342]">PHP</span>
+                <span class="rounded-full border border-[#c6ddcd] px-3 py-1.5 text-xs font-semibold text-[#345342]">React.js</span>
+              </div>
+            </article>
+          </div>
+          <p class="mt-6 text-xs leading-5 text-[#718078]">These are representative project examples, not client case studies. We’ll plan the right features and technology for your specific project.</p>
+
+          <div class="mt-14 flex flex-col gap-6 border-t border-[#e1e8e3] pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="text-sm font-semibold text-[#11231e]">Our technology toolkit</p>
+              <p class="mt-1 text-sm text-[#718078]">The right tools for a reliable, maintainable solution.</p>
+            </div>
+            <ul class="flex flex-wrap gap-2" aria-label="Technologies we work with">
+              <li class="rounded-full bg-[#eef3ef] px-4 py-2 text-sm font-semibold text-[#345342]">PHP</li>
+              <li class="rounded-full bg-[#eef3ef] px-4 py-2 text-sm font-semibold text-[#345342]">Laravel</li>
+              <li class="rounded-full bg-[#eef3ef] px-4 py-2 text-sm font-semibold text-[#345342]">React.js</li>
+              <li class="rounded-full bg-[#eef3ef] px-4 py-2 text-sm font-semibold text-[#345342]">Vue.js</li>
+              <li class="rounded-full bg-[#eef3ef] px-4 py-2 text-sm font-semibold text-[#345342]">Node.js</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="impact" class="bg-[#10231c] text-white">
+          <div class="mx-auto grid max-w-[1440px] gap-16 px-6 py-24 sm:px-10 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-16">
+            <div class="flex flex-col justify-between">
+              <div>
+                <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> The difference we make</p>
+                <h2 class="mt-6 font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">Progress, in<br />real numbers.</h2>
+              </div>
+              <p class="mt-8 max-w-[350px] text-sm leading-7 text-white/55">Good technology should make a measurable difference. Here's what happens when the right people and ideas come together.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-px bg-white/15">
+              <div class="stat-card"><p class="stat-value">12<span>+</span></p><p class="stat-label">Industries transformed</p></div>
+              <div class="stat-card"><p class="stat-value">96<span>%</span></p><p class="stat-label">Client partnerships renewed</p></div>
+              <div class="stat-card"><p class="stat-value">3.2<span>×</span></p><p class="stat-label">Faster time to market</p></div>
+              <div class="stat-card"><p class="stat-value">24<span>/7</span></p><p class="stat-label">Built for what's ahead</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="approach" class="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 sm:py-32 lg:px-16">
+          <div class="grid gap-12 lg:grid-cols-2 lg:gap-24">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-dot"></span> How we work</p>
+              <h2 class="mt-6 font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">One team.<br />From day one.</h2>
+              <p class="mt-7 max-w-[440px] text-[15px] leading-7 text-[#68766f]">No hand-offs. No black boxes. We work alongside your people, share what we learn, and stay focused on the outcome—not just the output.</p>
+              <a class="mt-8 inline-flex items-center gap-3 text-sm font-semibold text-[#1d4937]" href="#contact">Meet your next team <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="divide-y divide-[#e1e8e3] border-y border-[#e1e8e3]">
+              <div class="approach-row"><span class="approach-count">01</span><div><h3 class="font-display text-lg font-semibold tracking-[-0.03em]">Start with the real challenge</h3><p class="mt-2 text-sm leading-6 text-[#718078]">We listen, ask better questions, and get clear on what success looks like.</p></div></div>
+              <div class="approach-row"><span class="approach-count">02</span><div><h3 class="font-display text-lg font-semibold tracking-[-0.03em]">Make a plan together</h3><p class="mt-2 text-sm leading-6 text-[#718078]">A focused roadmap that connects the big picture to practical next steps.</p></div></div>
+              <div class="approach-row"><span class="approach-count">03</span><div><h3 class="font-display text-lg font-semibold tracking-[-0.03em]">Build, learn, and improve</h3><p class="mt-2 text-sm leading-6 text-[#718078]">Small feedback loops. Lasting results. Better with every iteration.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-6 pb-24 sm:px-10 sm:pb-32 lg:px-16">
+          <div class="mx-auto max-w-[1440px] overflow-hidden rounded-[2rem] bg-[#dff2e5]">
+            <div class="grid min-h-[400px] lg:grid-cols-[1fr_0.8fr]">
+              <div class="flex flex-col justify-center px-8 py-12 sm:px-14 sm:py-16 lg:px-20">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> A better way forward</p>
+                <h2 class="mt-6 font-display text-4xl font-medium leading-[1.12] tracking-[-0.06em] sm:text-5xl">The future isn't<br />something you wait for.</h2>
+                <p class="mt-5 max-w-[420px] text-sm leading-7 text-[#68766f]">It's something you build—with the right people beside you.</p>
+                <a class="mt-8 inline-flex w-fit items-center gap-3 rounded-full bg-[#10231c] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#1d4937]" href="#contact">Let's build it together <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="feature-image min-h-[250px]" role="img" aria-label="Sunlight falling across a modern architectural facade"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="bg-[#0a1714] text-white">
+          <div class="mx-auto grid max-w-[1440px] gap-12 px-6 py-20 sm:px-10 sm:py-24 lg:grid-cols-[1fr_auto] lg:items-end lg:px-16">
+            <div>
+              <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Your next chapter starts here</p>
+              <h2 class="mt-6 max-w-[800px] font-display text-4xl font-medium leading-tight tracking-[-0.06em] sm:text-6xl">Got a big idea?<br /><span class="text-[#a7f3c0]">We'd love to hear it.</span></h2>
+            </div>
+            <a class="inline-flex w-fit items-center gap-3 rounded-full bg-[#a7f3c0] px-7 py-4 text-sm font-bold text-[#10231c] transition hover:bg-white" href="mailto:hello@boostwaretech.com">Start a conversation <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bg-[#0a1714] text-white">
+        <div class="mx-auto max-w-[1440px] px-6 pb-8 sm:px-10 lg:px-16">
+          <div class="flex flex-col justify-between gap-8 border-t border-white/15 py-8 sm:flex-row sm:items-center">
+            <a class="flex items-center gap-3" href="#home" aria-label="BoostwareTech Solutions home">
+              <span class="brand-mark brand-mark-small" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M6 22.7 13.3 8l4.1 8.1 3.1-5.4L27 22.7H6Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.3 22.7 16 15.2l3.8 7.5" stroke="#a7f3c0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="font-display text-sm font-bold tracking-[-0.04em]">boostware<span class="text-[#a7f3c0]">tech</span></span>
+            </a>
+            <p class="text-xs text-white/45">© <span x-text="year"></span> BoostwareTech Solutions. All rights reserved.</p>
+            <div class="flex flex-col gap-3 text-xs text-white/55 sm:items-end">
+              <address class="max-w-sm not-italic leading-5 sm:text-right">
+                FF-10, Vigneshwar Arcade, Ambika Rd, Royal Star Town ship,<br class="hidden sm:block" />
+                Dindoli, Surat, Gujarat 394210
+              </address>
+              <a
+                class="transition hover:text-[#a7f3c0]"
+                href="https://www.google.com/maps/search/?api=1&query=FF-10%2C%20Vigneshwar%20Arcade%2C%20Ambika%20Rd%2C%20Royal%20Star%20Town%20ship%2C%20Dindoli%2C%20Surat%2C%20Gujarat%20394210"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Get directions ↗</a>
+              <a class="transition hover:text-[#a7f3c0]" href="mailto:hello@boostwaretech.com">hello@boostwaretech.com</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
